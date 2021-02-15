@@ -1,4 +1,8 @@
 buildscript {
+  ext {
+    kotlin_version = '1.4.10'
+  }
+
   // Buildscript is evaluated before everything else so we can't use getExtOrDefault
   def kotlin_version = rootProject.ext.has('kotlinVersion') ? rootProject.ext.get('kotlinVersion') : project.properties['QrImageReader_kotlinVersion']
 
@@ -29,7 +33,7 @@ android {
   compileSdkVersion getExtOrIntegerDefault('compileSdkVersion')
   buildToolsVersion getExtOrDefault('buildToolsVersion')
   defaultConfig {
-    minSdkVersion 24
+    minSdkVersion 21
     targetSdkVersion getExtOrIntegerDefault('targetSdkVersion')
     versionCode 1
     versionName "1.0"
@@ -128,6 +132,6 @@ dependencies {
   api 'com.facebook.react:react-native:+'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-  implementation 'com.google.zxing:core:3.4.1'
+//  implementation 'com.google.zxing:core:3.4.1'
   implementation 'androidx.appcompat:appcompat:1.0.2'
 }
